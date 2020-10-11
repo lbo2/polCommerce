@@ -1,0 +1,159 @@
+<h2 mat-dialog-title>Calcula cuánto hormigón necesitas</h2>
+
+<mat-dialog-content>
+  <div class="example-container">
+    <mat-form-field appearance="standard">
+      <mat-label>Forma</mat-label>
+      <mat-select [(ngModel)]="forma" (ngModelChange)="selectForma($event)">
+        <mat-option value="losa">Losa</mat-option>
+        <mat-option value="piscina">Piscina</mat-option>
+        <mat-option value="escalera">Escalera</mat-option>
+      </mat-select>
+      <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+
+    <div *ngIf="forma==='losa'">
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Grosor</mat-label>
+          <input matInput [(ngModel)]="losa.grosor">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="losa.grosorEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Ancho</mat-label>
+          <input matInput [(ngModel)]="losa.ancho">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="losa.anchoEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Longitud</mat-label>
+          <input matInput [(ngModel)]="losa.longitud">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="losa.longitudEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="forma==='piscina'">
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Ancho</mat-label>
+          <input matInput [(ngModel)]="piscina.ancho">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="piscina.anchoEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Longitud</mat-label>
+          <input matInput [(ngModel)]="piscina.longitud">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="piscina.longitudEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Profundidad</mat-label>
+          <input matInput [(ngModel)]="piscina.profundidad">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="piscina.profundidadEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Espesor</mat-label>
+          <input matInput [(ngModel)]="piscina.espesor">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="piscina.espesorEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+
+    <div *ngIf="forma==='escalera'">
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Ancho</mat-label>
+          <input matInput [(ngModel)]="escalera.ancho">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="escalera.anchoEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Longitud</mat-label>
+          <input matInput [(ngModel)]="escalera.longitud">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="escalera.longitudEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Altura</mat-label>
+          <input matInput [(ngModel)]="escalera.altura">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-select [(ngModel)]="escalera.alturaEscala">
+            <mat-option value="cm" selected>cm</mat-option>
+            <mat-option value="m">m</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Escalones</mat-label>
+          <input matInput [(ngModel)]="escalera.escalones">
+        </mat-form-field>
+      </div>
+  </div>
+
+    <h3 *ngIf="mostrarVolumen">{{volumen}} m3</h3>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="calcular()">Calcular</button>
+  <button mat-raised-button (click)="agregar()">Agregar</button>
+</mat-dialog-actions>

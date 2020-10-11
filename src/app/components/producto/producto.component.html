@@ -1,0 +1,7 @@
+<a routerLink="/agenda" routerLinkActive="active">Cotiza</a>
+
+<button mat-raised-button (click)="openDialog()">Calculadora</button>
+
+<div *ngIf="volumen">
+    <h3>{{volumen}} m3</h3>
+</div>
