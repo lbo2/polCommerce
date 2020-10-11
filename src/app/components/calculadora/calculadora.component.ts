@@ -106,6 +106,15 @@ export class CalculadoraComponent implements OnInit {
       anchoEscala: 'm',
       longitudEscala: 'm'
     }
+    this.escalera = {
+      altura: null,
+      ancho: null,
+      longitud: null,
+      escalones: null,
+      alturaEscala: 'm',
+      anchoEscala: 'm',
+      longitudEscala: 'm'
+    }
     console.log(value);
   }
 
