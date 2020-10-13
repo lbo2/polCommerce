@@ -1,159 +1,201 @@
 <h2 mat-dialog-title>Calcula cuánto hormigón necesitas</h2>
 
 <mat-dialog-content>
-  <div class="example-container">
+  <div>
+    <!-- SELECTOR DE FORMA -->
     <mat-form-field appearance="standard">
       <mat-label>Forma</mat-label>
-      <mat-select [(ngModel)]="forma" (ngModelChange)="selectForma($event)">
+      <mat-select [(ngModel)]="forma" (ngModelChange)="selectForma()">
         <mat-option value="losa">Losa</mat-option>
         <mat-option value="piscina">Piscina</mat-option>
         <mat-option value="escalera">Escalera</mat-option>
       </mat-select>
-      <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+      <mat-hint align="end">Escoge la forma que necesitas</mat-hint>
     </mat-form-field>
 
+    <!-- FORMULARIO LOSA -->
     <div *ngIf="forma==='losa'">
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Grosor</mat-label>
-          <input matInput [(ngModel)]="losa.grosor">
+      <form [formGroup]="losaForm">
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Grosor</mat-label>
+            <input type="number" matInput formControlName="grosor"/>
+            <mat-error *ngIf="losaForm.get('grosor').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="losa.grosorEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="grosorEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Ancho</mat-label>
+            <input type="number" matInput formControlName="ancho"/>
+            <mat-error *ngIf="losaForm.get('ancho').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Ancho</mat-label>
-          <input matInput [(ngModel)]="losa.ancho">
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="anchoEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Longitud</mat-label>
+            <input type="number" matInput formControlName="longitud"/>
+            <mat-error *ngIf="losaForm.get('longitud').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="losa.anchoEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Longitud</mat-label>
-          <input matInput [(ngModel)]="losa.longitud">
-        </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="losa.longitudEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="longitudEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
     </div>
 
+    <!-- FORMULARIO PISCINA -->
     <div *ngIf="forma==='piscina'">
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Ancho</mat-label>
-          <input matInput [(ngModel)]="piscina.ancho">
+      <form [formGroup]="piscinaForm">
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Ancho</mat-label>
+            <input type="number" matInput formControlName="ancho"/>
+            <mat-error *ngIf="piscinaForm.get('ancho').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="piscina.anchoEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="anchoEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Longitud</mat-label>
+            <input type="number" matInput formControlName="longitud"/>
+            <mat-error *ngIf="piscinaForm.get('longitud').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Longitud</mat-label>
-          <input matInput [(ngModel)]="piscina.longitud">
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="longitudEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Profundidad</mat-label>
+            <input type="number" matInput formControlName="profundidad"/>
+            <mat-error *ngIf="piscinaForm.get('profundidad').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="piscina.longitudEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="profundidadEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Espesor</mat-label>
+            <input type="number" matInput formControlName="espesor"/>
+            <mat-error *ngIf="piscinaForm.get('espesor').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Profundidad</mat-label>
-          <input matInput [(ngModel)]="piscina.profundidad">
-        </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="piscina.profundidadEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Espesor</mat-label>
-          <input matInput [(ngModel)]="piscina.espesor">
-        </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="piscina.espesorEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="espesorEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
     </div>
 
 
-
+    <!-- FORMULARIO ESCALERA -->
     <div *ngIf="forma==='escalera'">
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Ancho</mat-label>
-          <input matInput [(ngModel)]="escalera.ancho">
+      <form [formGroup]="escaleraForm">
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Ancho</mat-label>
+            <input type="number" matInput formControlName="ancho"/>
+            <mat-error *ngIf="escaleraForm.get('ancho').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="escalera.anchoEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="anchoEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Longitud</mat-label>
+            <input type="number" matInput formControlName="longitud"/>
+            <mat-error *ngIf="escaleraForm.get('longitud').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
         </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Longitud</mat-label>
-          <input matInput [(ngModel)]="escalera.longitud">
-        </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="escalera.longitudEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Altura</mat-label>
-          <input matInput [(ngModel)]="escalera.altura">
-        </mat-form-field>
-        <mat-form-field appearance="standard">
-          <mat-select [(ngModel)]="escalera.alturaEscala">
-            <mat-option value="cm" selected>cm</mat-option>
-            <mat-option value="m">m</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>Escalones</mat-label>
-          <input matInput [(ngModel)]="escalera.escalones">
-        </mat-form-field>
-      </div>
-  </div>
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="longitudEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Altura</mat-label>
+            <input type="number" matInput formControlName="altura"/>
+            <mat-error *ngIf="escaleraForm.get('altura').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-select formControlName="alturaEscala">
+              <mat-option value="cm">cm</mat-option>
+              <mat-option value="m">m</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="col-5 mb-2 mx-auto">
+            <mat-label>Escalones</mat-label>
+            <input type="number" matInput formControlName="escalones"/>
+            <mat-error *ngIf="escaleraForm.get('escalones').hasError('required')">
+            El campo es <strong>obligatorio</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
 
     <h3 *ngIf="mostrarVolumen">{{volumen}} m3</h3>
   </div>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-button (click)="calcular()">Calcular</button>
-  <button mat-raised-button (click)="agregar()">Agregar</button>
+  <button [disabled]="!isFormValid()" mat-button (click)="calcular()">Calcular</button>
+  <button [disabled]="!volumen" mat-raised-button (click)="agregar()">Agregar</button>
 </mat-dialog-actions>
