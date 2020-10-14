@@ -1,2 +1,119 @@
-<h2>Evaluación Riesgo</h2>
-<a routerLink="/datos-entrega" routerLinkActive="active">Datos de entrega</a>
+<app-header></app-header>
+ 
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">#Código postal</li>
+      <li class="breadcrumb-item active" aria-current="page">Evaluación de riesgo</li>
+    </ol>
+  </nav>
+
+  <div class="container border-bottom pb-3">
+    <div class="pt-md-3">
+      <h2 class="text-muted">EVALUACIÓN DE RIESGO</h2>
+        <p class="">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. </p>
+    </div>
+
+    <div class="pt-md-3 ">
+      <h4 class="text-muted">ACCESOS</h4>
+      <p class="">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. </p>
+    </div>
+
+    <div class="pt-md-3 ">
+      <h4 class="text-muted">CONTROL DE DESCARGA</h4>
+      <p class="">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500. </p>
+    </div>
+
+    <div class="card">
+      <img src="/assets/images/MG_0421.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <div class="form-check text-center">
+          <input type="checkbox" [(ngModel)]="aceptaCondiciones" class="form-check-input" id="aceptaCondiciones">
+          <label class="form-check-label" for="aceptaCondiciones">Acepto los terminos y condiciones.</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="container mb-5">           
+    <div class="col-md-12 pl-5">
+      <div class="row justify-content-end">
+        <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-12 text-right border-bottom mb-5">
+                  <h3 class="text-black h4 text-uppercase">Mi pedido</h3>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <span class="text-black">Producto</span>
+                  
+                </div>
+                <div class="col-md-6 text-right mb-3">
+                  <strong class="text-black">$23.456</strong>
+                </div>
+                <div class="col-md-12">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <span class="text-success">Servicios</span>
+                </div>
+                <div class="col-md-6 text-right mb-3">
+                  <strong class="text-success">$12.345</strong>
+                </div>
+                <div class="col-md-12">
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio voluptatem aliquid corrupti ad praesentium laudantium tempore.</p>
+                </div>
+              </div>
+
+              <div class="row mb-5">
+                <div class="col-md-6">
+                  <h4 class="text-success">TOTAL</h4>
+                </div>
+                <div class="col-md-6 text-right">
+                  <h4 class="text-black">$45.678</h4>
+                </div>
+              </div>
+              <div class="row">
+                    <div class="col-md-12">
+                    <button [disabled]="!aceptaCondiciones" class="btn polpaicoButton btn-lg btn-block" routerLink="/datos-entrega" routerLinkActive="active">Siguiente</button>
+                    </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+  <app-footer></app-footer>
+
+
+  <!-- Modal -->
+  <div class="modal fade custom show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <h3>TOTAL</h3>
+        <h3 class="total">$ </h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

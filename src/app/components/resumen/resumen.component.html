@@ -3,34 +3,57 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">#Código postal</li>
-      <li class="breadcrumb-item active" aria-current="page">agenda</li>
+      <li class="breadcrumb-item active" aria-current="page">Detalle pedido</li>
     </ol>
   </nav>
+  <!--Sección datos de entrega-->
+<div class="container border-bottom pb-3">
 
-  <div class="container border-bottom pb-5">
-    <div class="pt-md-5 pb-md-4 mx-auto">
-      <h2 class="text-muted">AGENDA TU SERVICIO</h2>
+    <h2 class="text-muted">REVISE SU ORDEN</h2>
+    <span class="text">En caso de problemas comunicarse a --- <a href="">@#</a></span>
+    <div class="card px-3 pt-3">
+        <div class="row mb-5">
+            <div class="col-md-5">
+                <div class="mb-4">
+                    <h2>Datos de envio</h2>
+                    <h6>Dirección</h6>
+                    <p>{{session.despacho.direccion}}</p>
+                    <h6>Comuna</h6>
+                    <p>{{session.despacho.comuna}}</p>
+                    <h6>Teléfono</h6>
+                    <p>{{session.despacho.telefono}}</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Detalle del pedido</h2>
+                <div>
+                    <h6>Nombre producto</h6>
+                    <h5>{{session.product.name}}</h5>
+                    <h6>Elemento</h6>
+                    <p>{{session.element}}</p>
+                    <h6>Detalle producto</h6>
+                    <p>{{session.product.id}}</p>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="mb-4">
+                    <h3>Tiempo Entrega</h3>
+                    <div class="d-flex">
+                        <ul class="mr-4">
+                        <li><a href="#" class="py-2 d-block">Seguir estado del pedido</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+
     </div>
 
-    <div class="pb-md-3">
-      <!---Aquí la agenda-->
-      <div class="row" style="background-color: aquamarine;">   --> Here Calendar Plugin?  <-- <div id='calendar'></div></div>
-  
-    </div>
-
-  
-
-    <!-- <div class="row pb-3">
-      <div class="col-lg-6">
-        <img src="/assets/images/Losa.png" class="card-img-top img-responsive" alt="">
-      </div>
-      <div class="col-lg-6">
-        <p class="card-text">Elemento 1 seleccionado .. breve descripción Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-    -->
-  </div>
-
+</div>
 
   <div class="container mb-5">           
     <div class="col-md-12 pl-5">
@@ -74,12 +97,7 @@
                   <h4 class="text-black">$45.678</h4>
                 </div>
               </div>
-              <div class="row">
-                    <div class="col-md-12">
-                    <button class="btn polpaicoButton btn-lg btn-block" routerLink="/evaluacion" routerLinkActive="active">Siguiente</button>
-                    </div>
-              </div>
-            </div>
+             </div>
         </div>
       </div>
     </div>

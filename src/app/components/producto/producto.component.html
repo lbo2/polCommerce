@@ -1,9 +1,159 @@
-<h2>Detalle Producto</h2>
+<app-header></app-header>
+ 
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">#Código postal</li>
+      <li class="breadcrumb-item active" aria-current="page">Detalle y cantidad de producto</li>
+    </ol>
+  </nav>
 
-<button mat-raised-button (click)="openDialog()">Calculadora</button>
+  <div class="container">
+    <div class="pt-md-5 pb-md-4 mx-auto">
+      <h2 class="text-muted">DETALLE DE PRODUCTO</h2>
+    </div>
 
-<div *ngIf="volumen">
-    <h3>{{volumen}} m3</h3>
-</div>
+    <div class="pb-md-3">
+      <div class="card-deck">
+        <div class="card col-lg 3 col-md-3 col-sm-12 col-xs-12">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<a routerLink="/agenda" routerLinkActive="active">Agenda</a>
+    <ng-container *ngIf="session.element != ''">
+      <div class="input-group mb-3">
+        <select class="custom-select SelectorColor" id="inputGroupSelect02">
+          <option selected>Selecciona tipo de elemento...</option>
+          <option value="1" selected>Elemento 1</option>
+          <option value="2">Elemento 2</option>
+          <option value="3">Elemento 3</option>
+          <option value="2">Elemento 4</option>
+          <option value="3">Elemento 5</option>
+        </select>
+      </div>
+      <div class="input-group mb-3">
+        <select class="custom-select SelectorColor" id="inputGroupSelect02">
+          <option selected>Selecciona metodo vertido...</option>
+          <option value="1" selected>Metodo 1</option>
+          <option value="3">Metodo 2</option>
+        </select>
+      </div>
+    </ng-container>
+
+    <!-- <div class="row pb-3">
+      <div class="col-lg-6">
+        <img src="/assets/images/Losa.png" class="card-img-top img-responsive" alt="">
+      </div>
+      <div class="col-lg-6">
+        <p class="card-text">Elemento 1 seleccionado .. breve descripción Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+    -->
+  </div>
+
+
+  <div class="container mb-5">        
+    <h2 class="text-muted">Cantidad Requerida</h2>
+    <!--Aquí la Calculadora-->
+
+    <div *ngIf="volumen">
+        <h3>{{volumen}} m3</h3>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <form [formGroup]="camionesForm">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Cantidad m3</label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" placeholder="Cantidad m3" formControlName="volumen">
+              <mat-error *ngIf="camionesForm.get('volumen').hasError('required') && camionesForm.get('volumen').touched && camionesForm.get('volumen').dirty">
+                El campo es <strong>obligatorio</strong>
+              </mat-error>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">m3 por camión</label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" id="m3porcamion" placeholder="m3 por camión" formControlName="volumenCamion">
+              <mat-error *ngIf="camionesForm.get('volumenCamion').hasError('required') && camionesForm.get('volumenCamion').touched && camionesForm.get('volumenCamion').dirty">
+                El campo es <strong>obligatorio</strong>
+              </mat-error>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Total camiones</label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" id="Totalcamiones" placeholder="Total camiones" [value]="cantidadCamiones" disabled>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-12 col-form-label">No sabes cuanto pedir? Utiliza nuestra <strong (click)="openDialog()">Calculadora de hormigón </strong></label>
+            
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-6"><!-- ... alguna imagen del tipo de elemento --></div>
+    </div>
+
+ 
+    <div class="col-md-12 pl-5">
+      <div class="row justify-content-end">
+        <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-12 text-right border-bottom mb-5">
+                  <h3 class="text-black h4 text-uppercase">Mi pedido</h3>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <span class="text-black">Producto</span>
+                  
+                </div>
+                <div class="col-md-6 text-right mb-3">
+                  <strong class="text-black">$23.456</strong>
+                </div>
+                <div class="col-md-12">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <span class="text-success">Servicios</span>
+                </div>
+                <div class="col-md-6 text-right mb-3">
+                  <strong class="text-success">$12.345</strong>
+                </div>
+                <div class="col-md-12">
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio voluptatem aliquid corrupti ad praesentium laudantium tempore.</p>
+                </div>
+              </div>
+
+              <div class="row mb-5">
+                <div class="col-md-6">
+                  <h4 class="text-success">TOTAL</h4>
+                </div>
+                <div class="col-md-6 text-right">
+                  <h4 class="text-black">$45.678</h4>
+                </div>
+              </div>
+              <div class="row">
+                    <div class="col-md-12">
+                    <button class="btn polpaicoButton btn-lg btn-block" (click)="siguiente()">Siguiente</button>
+                    </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+  <app-footer></app-footer>

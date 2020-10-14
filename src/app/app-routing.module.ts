@@ -9,6 +9,7 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { AgendaComponent } from './components/agenda/agenda.component';
 import { EvaluacionComponent } from './components/evaluacion/evaluacion.component';
 import { DatosEntregaComponent } from './components/datos-entrega/datos-entrega.component';
+import { ResumenComponent } from './components/resumen/resumen.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'agenda', component: AgendaComponent },
   { path: 'evaluacion', component: EvaluacionComponent },
   { path: 'datos-entrega', component: DatosEntregaComponent },
+  { path: 'resumen', component: ResumenComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to `home`
   { path: '**', component: HomeComponent },  // Wildcard route for a 404 page
 ];

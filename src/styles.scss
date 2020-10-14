@@ -2,3 +2,36 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.Fonts {
+    font-size: 1em !important;
+    font-family: 'system-ui' !important;
+    font-weight: 400 !important;
+  }
+  .polpaicoButton {
+      background-color: #03DAC6 !important;
+      color: white !important;
+  }
+  .polpaicoText {
+      color: #03DAC6 !important;
+  }
+  .ptextfooter {
+      color:#25506A !important;
+  }
+  .footerStyle {
+      background-color: #303030 !important;
+  }
+  .SelectorColor {
+      background-color: #25506A !important;
+      color: azure !important;
+  }
+
+
+  .modal.custom .modal-dialog {
+      width:100% !important;
+      position:fixed !important;
+      bottom:0 !important;
+      right:0 !important;
+      margin:0 !important;
+
+  }

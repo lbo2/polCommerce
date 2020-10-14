@@ -1,2 +1,73 @@
-<h2>Elige el tipo de elemento que quieres construir</h2>
-<a routerLink="/elemento" routerLinkActive="active">Elemento</a>
+<app-header></app-header>
+
+<ng-container *ngIf="readyToShow">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">#Código postal</li>
+    <li class="breadcrumb-item active" aria-current="page">Selecciona elemento o producto</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <div class="pt-md-5 pb-md-4 mx-auto">
+    <h2 class="text-muted">Elige el tipo de elemento que quieres construir</h2>
+    </div>
+</div>
+
+<div class="container border-bottom pb-3">
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src="/assets/images/Cimentacion.png"  alt="Card image cap" (click)="selectElement('12121')">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+        <a href="#" class="pull-right card-link">Conocer más</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/Losa.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="pull-right card-link">Conocer más</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="/assets/images/Piso.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="pull-right card-link">Conocer más</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-6 pb-md-4">
+      <h2 class="text-muted">PRODUCTOS ({{products.length}})</h2>
+    </div>
+    <div class="col-lg-6">   
+       <a href="" class="pull-right"><p>Ver todos..</p></a>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container pb-md-5">
+  <div class="card-deck">
+    <div *ngFor="let product of products; let i = index" class="card text-white bg-secondary mb-3 col-lg 3 col-md-3  col-sm-12 col-xs-12 mr-2">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button class="btn polpaicoButton btn-block" (click)="selectProduct(i)">SELECCIONAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-container>
+
+<app-footer></app-footer>

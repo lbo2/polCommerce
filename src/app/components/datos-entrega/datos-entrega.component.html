@@ -1,1 +1,194 @@
-<h2>Datos de entrega</h2>
+<app-header></app-header>
+ 
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">#Código postal</li>
+      <li class="breadcrumb-item active" aria-current="page">Datos de entrega</li>
+    </ol>
+  </nav>
+  <!--Sección datos de entrega-->
+  <div class="container border-bottom pb-3">
+    <form [formGroup]="datosEntrega">
+    <div class="pt-md-3">
+      <h2 class="text-muted">DATOS PARA LA ENTREGA</h2>
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Nombres: </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="nombres" placeholder="">
+            <mat-error *ngIf="datosEntrega.get('nombres').hasError('required') && datosEntrega.get('nombres').dirty && datosEntrega.get('nombres').touched">
+              El campo es <strong>obligatorio</strong>
+            </mat-error>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Email: </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="email" placeholder="">
+            <mat-error *ngIf="datosEntrega.get('email').hasError('required') && datosEntrega.get('email').dirty && datosEntrega.get('email').touched">
+              El campo es <strong>obligatorio</strong>
+            </mat-error>
+            <mat-error *ngIf="datosEntrega.get('email').hasError('email') && datosEntrega.get('email').dirty && datosEntrega.get('email').touched">
+              Ingrese un correo <strong>válido</strong>
+            </mat-error>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Teléfono: </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="telefono" placeholder="">
+            <mat-error *ngIf="datosEntrega.get('telefono').hasError('required') && datosEntrega.get('telefono').dirty && datosEntrega.get('telefono').touched">
+              El campo es <strong>obligatorio</strong>
+            </mat-error>
+          </div>
+        </div>
+    </div>
+    <!--Sección dirección-->
+    <div class="pt-md-3">
+      <h2 class="text-muted">DIRECCIÓN</h2>
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Dirección: </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="direccion" placeholder="">
+            <mat-error *ngIf="datosEntrega.get('direccion').hasError('required') && datosEntrega.get('direccion').dirty && datosEntrega.get('direccion').touched">
+              El campo es <strong>obligatorio</strong>
+            </mat-error>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Comuna: </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="comuna" placeholder="">
+            <mat-error *ngIf="datosEntrega.get('comuna').hasError('required') && datosEntrega.get('comuna').dirty && datosEntrega.get('comuna').touched">
+              El campo es <strong>obligatorio</strong>
+            </mat-error>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Ciudad: </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="ciudad" placeholder="">
+            <mat-error *ngIf="datosEntrega.get('ciudad').hasError('required') && datosEntrega.get('ciudad').dirty && datosEntrega.get('ciudad').touched">
+              El campo es <strong>obligatorio</strong>
+            </mat-error>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Código postal: </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="codigoPostal" placeholder="">
+            <mat-error *ngIf="datosEntrega.get('codigoPostal').hasError('required') && datosEntrega.get('codigoPostal').dirty && datosEntrega.get('codigoPostal').touched">
+              El campo es <strong>obligatorio</strong>
+            </mat-error>
+          </div>
+        </div>
+    </div>
+
+    <!--Sección Crea tu cuenta-->
+    <div class="pt-md-3">
+      <h2 class="text-muted">CREA TU CUENTA</h2>
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Contraseña: </label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" formControlName="password" placeholder="Ingresa una contraseña para tu cuenta">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Repite la Contraseña: </label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" formControlName="password2" placeholder="Repite la contraseña">
+            <mat-error *ngIf="datosEntrega.hasError('same') && datosEntrega.dirty && datosEntrega.touched">
+              Las contraseñas deben <strong>coincidir</strong>
+            </mat-error>
+          </div>
+        </div>
+    </div>
+  </form>  
+  </div>
+
+  <div class="container mb-5">           
+    <div class="col-md-12 pl-5">
+      <div class="row justify-content-end">
+        <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-12 text-right border-bottom mb-5">
+                  <h3 class="text-black h4 text-uppercase">Mi pedido</h3>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <span class="text-black">Producto</span>
+                  
+                </div>
+                <div class="col-md-6 text-right mb-3">
+                  <strong class="text-black">$23.456</strong>
+                </div>
+                <div class="col-md-12">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <span class="text-success">Servicios</span>
+                </div>
+                <div class="col-md-6 text-right mb-3">
+                  <strong class="text-success">$12.345</strong>
+                </div>
+                <div class="col-md-12">
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio voluptatem aliquid corrupti ad praesentium laudantium tempore.</p>
+                </div>
+              </div>
+
+              <div class="row mb-5">
+                <div class="col-md-6">
+                  <h4 class="text-success">TOTAL</h4>
+                </div>
+                <div class="col-md-6 text-right">
+                  <h4 class="text-black">$45.678</h4>
+                </div>
+              </div>
+              <div class="row">
+                    <div class="col-md-12">
+                    <button [disabled]="!datosEntrega.valid" class="btn polpaicoButton btn-lg btn-block" (click)="guardarEnvio()">PAGAR</button>
+                    </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+  <app-footer></app-footer>
+
+
+  <!-- Modal -->
+  <div class="modal fade custom show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <h3>TOTAL</h3>
+        <h3 class="total">$ </h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

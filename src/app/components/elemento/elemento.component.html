@@ -1,2 +1,67 @@
-<h2>Elemento 1</h2>
-<a routerLink="/productos" routerLinkActive="active">Selección de producto</a>
+<app-header></app-header>
+ 
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">#Código postal</li>
+      <li class="breadcrumb-item" aria-current="page">Selección de elementos</li>
+      <li class="breadcrumb-item active" aria-current="page">Elemento 1</li>
+    </ol>
+  </nav>
+
+  <div class="container border-bottom pb-3">
+    <div class="pt-md-5 pb-md-4 mx-auto">
+      <h2 class="text-muted">ELEMENTO 1</h2>
+    </div>
+
+    <div class="input-group mb-3">
+      <select class="custom-select SelectorColor" id="inputGroupSelect02">
+        <option selected>Selecciona tipo de elemento...</option>
+        <option value="1" selected>Elemento 1</option>
+        <option value="2">Elemento 2</option>
+        <option value="3">Elemento 3</option>
+        <option value="2">Elemento 4</option>
+        <option value="3">Elemento 5</option>
+      </select>
+    </div>
+
+    <div class="row pb-3">
+      <div class="col-lg-6">
+        <img src="/assets/images/Losa.png" class="card-img-top img-responsive" alt="">
+      </div>
+      <div class="col-lg-6">
+        <p class="card-text">Elemento 1 seleccionado .. breve descripción Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container pt-3">
+    <div class="row">
+      <div class="col-lg-6 pb-md-4">
+        <h2 class="text-muted">SELECCIONE METODO DE VERTIDO</h2>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="container pb-md-5">
+    <div class="card-deck">
+      <div class="card mb-3 col-lg 3 col-md-6  col-sm-12 col-xs-12 mr-2">
+        <div class="card-body">
+          <h5 class="card-title">Metodo 1</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button class="btn polpaicoButton btn-block" (click)="selectMethod('qwerty')">SELECCIONAR</button>
+        </div>
+      </div>
+
+      <div class="card mb-3 col-lg 3 col-md-6  col-sm-12 col-xs-12 mr-2">
+        <div class="card-body">
+          <h5 class="card-title">Metodo 2</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn polpaicoButton btn-block">SELECCIONAR</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>

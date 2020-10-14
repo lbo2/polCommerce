@@ -1,6 +1,74 @@
-<h2>Home</h2>
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto tempore dolorum sunt error doloribus fugit, fugiat assumenda a sed officiis, laudantium nemo, dolorem esse! Laboriosam voluptas commodi fugiat quod aperiam?</p>
+<app-header></app-header>
 
-<div class="card-container">
-    <a routerLink="/seleccion" routerLinkActive="active">Cotiza</a>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+          <img src="/assets/images/imagen-fondo1.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
 </div>
+
+<div class="container">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+    </div>
+</div>
+
+<section class="jumbotron text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <input type="text" class="form-control" placeholder="CÓDIGO POSTAL" aria-label="" aria-describedby="basic-addon1">
+        </div>
+        <div class="col-6">
+          <button class="btn polpaicoButton btn-block" type="button" (click)="goToSeleccion()">COTIZA</button>
+        </div>
+      </div>
+      
+    </div>
+</section>
+
+<div class="container">
+    <p class="lead">BENEFICIOS</p>
+</div>
+
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Beneficio 1</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">Bla <small class="text-muted">/ Bla</small></h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Beneficio 2</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted">Beneficio 2</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p>
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Beneficio 3</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">Bla <small class="text-muted">/ bla</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+</div>
+
+<app-footer></app-footer>

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EvaluacionComponent implements OnInit {
 
+  aceptaCondiciones:any;
+
   constructor() { }
 
   ngOnInit() {

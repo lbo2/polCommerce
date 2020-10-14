@@ -19,7 +19,10 @@ import { AgendaComponent } from './components/agenda/agenda.component';
 import { EvaluacionComponent } from './components/evaluacion/evaluacion.component';
 import { DatosEntregaComponent } from './components/datos-entrega/datos-entrega.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalculadoraComponent } from './components/calculadora/calculadora.component';
+import { CalculadoraComponent } from './shared/calculadora/calculadora.component';
+import { ResumenComponent } from './components/resumen/resumen.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { CalculadoraComponent } from './components/calculadora/calculadora.compo
     AgendaComponent,
     EvaluacionComponent,
     DatosEntregaComponent,
-    CalculadoraComponent
+    CalculadoraComponent,
+    ResumenComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
