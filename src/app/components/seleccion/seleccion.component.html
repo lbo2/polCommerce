@@ -16,16 +16,16 @@
 
 <div class="container border-bottom pb-3">
   <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src="/assets/images/Cimentacion.png"  alt="Card image cap" (click)="selectElement('12121')">
+    <div class="card" *ngFor="let element of elements; let i = index">
+      <img class="card-img-top" src="/assets/images/Cimentacion.png"  alt="Card image cap" (click)="selectElement(i)">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">{{element.name}}</h5>
+        <p class="card-text">{{element.description}}</p>
         
         <a href="#" class="pull-right card-link">Conocer más</a>
       </div>
     </div>
-    <div class="card">
+    <!-- <div class="card">
       <img src="/assets/images/Losa.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
@@ -40,7 +40,7 @@
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="#" class="pull-right card-link">Conocer más</a>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -53,16 +53,15 @@
        <a href="" class="pull-right"><p>Ver todos..</p></a>
     </div>
   </div>
-
 </div>
 
 
 <div class="container pb-md-5">
   <div class="card-deck">
-    <div *ngFor="let product of products; let i = index" class="card text-white bg-secondary mb-3 col-lg 3 col-md-3  col-sm-12 col-xs-12 mr-2">
+    <div *ngFor="let product of products; let i = index" class="card text-white bg-secondary mb-3 col-lg-3 col-md-3" style="min-width: inherit;">
       <div class="card-body">
         <h5 class="card-title">{{product.name}}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <p class="card-text">{{product.description}}</p>
         <button class="btn polpaicoButton btn-block" (click)="selectProduct(i)">SELECCIONAR</button>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductsService } from 'src/app/services/products.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
@@ -13,16 +14,16 @@ export class ProductosComponent implements OnInit {
   products:any;
   session:any;
 
-  constructor(public utils: UtilsService, public router: Router) { }
+  constructor(public utils: UtilsService, public router: Router, public prodServ:ProductsService) { }
 
   async ngOnInit() {
     this.session = JSON.parse(sessionStorage.getItem('session'));
-    await this.consumirGET();
+    await this.getProducts();
   }
 
-  async consumirGET(){
-    let urlGet:string = "https://devapipolpaico.azurewebsites.net/api/products";
-    this.products = await this.utils.callGET(urlGet);
+  async getProducts(){
+    let response:any = await this.prodServ.getProducts();
+    this.products = response.items;
     sessionStorage.setItem('products',JSON.stringify(this.products));
     this.readyToShow = true;
     console.log(this.products);
